@@ -113,13 +113,62 @@ Then you can see the web page:
 
 ![hello-minikube.png](hello-minikube.png)
 
-And a new pod from the command line:
+Get information of the new pod from the command line:
 
 ```bash
 $ kubectl get pods -o wide
 NAME                              READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
 hello-minikube-64b64df8c9-5dqgc   1/1     Running   0          10m   172.18.0.5   minikube   <none>           <none>
 ```
+
+```bash
+$ kubectl describe pod hello-minikube-64b64df8c9-5dqgc
+Name:         hello-minikube-64b64df8c9-5dqgc
+Namespace:    default
+Priority:     0
+Node:         minikube/172.17.0.3
+Start Time:   Fri, 31 Jul 2020 15:03:26 +0800
+Labels:       app=hello-minikube
+              pod-template-hash=64b64df8c9
+Annotations:  <none>
+Status:       Running
+IP:           172.18.0.5
+IPs:
+  IP:           172.18.0.5
+Controlled By:  ReplicaSet/hello-minikube-64b64df8c9
+Containers:
+  echoserver:
+    Container ID:   docker://33ba9e66e17f9d2c2e33e27d670bd6868dcb114b1698b5a8fd273f14280e75fc
+    Image:          k8s.gcr.io/echoserver:1.10
+    Image ID:       docker-pullable://k8s.gcr.io/echoserver@sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Fri, 31 Jul 2020 15:03:38 +0800
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-hbstp (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-hbstp:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-hbstp
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>
+```
+
+
 
 # YAML File
 
