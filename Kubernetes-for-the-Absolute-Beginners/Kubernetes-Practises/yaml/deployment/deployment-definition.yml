@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+  labels:
+    tier: db-tier
+spec:
+  replicas: 23
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 4
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      tier: db-tier
+  template:
+    metadata:
+      name: postgres
+      labels:
+        tier: db-tier
+    spec:
+      containers:
+        - name: postgres
+          image: postgres
+          env:
+            - name: POSTGRES_PASSWORD
+              value: mysecretpassword

@@ -77,9 +77,37 @@ KubeDNS is running at https://127.0.0.1:32772/api/v1/namespaces/kube-system/serv
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
 
+# YAML File
+
+Use case:
+
+- Jacob is 30 year old Male working as a Systems Engineer at a firm. Represent Jacob's information (Name, Sex, Title) in YAML format. Create a dictionary named Employee and define properties under it.
+- Update the YAML file to represent the Projects assigned to Jacob. Remember Jacob works Multiple projects - Automation and Support. So remember to use a list.
+- Update the YAML file to include Jacob's pay slips. Add a new property "Payslips" and create a list of pay slip details (Use list of dictionaries). Each payslip detail contains Month and Wage.
+
+<img src="yaml_usecase_employee_3.png" align="left" style="zoom:100%;" />
+
+```yaml
+Employee:
+    Name: Jacob
+    Sex: Male
+    Age: 30
+    Title: Systems Engineer
+    Projects:
+        - Automation
+        - Support
+    Payslips:
+        - Month: June
+          Wage: 4000
+        - Month: July
+          Wage: 4500
+        - Month: August
+          Wage: 4000
+```
+
 # POD
 
-## Deploy from Command Line
+## Create from Command Line
 
 ```bash
 $ kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
@@ -168,35 +196,12 @@ Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
 Events:          <none>
 ```
 
+## Create from YAML file
 
+...
 
-# YAML File
+# Replica Set
 
-Use case:
+...
 
-- Jacob is 30 year old Male working as a Systems Engineer at a firm. Represent Jacob's information (Name, Sex, Title) in YAML format. Create a dictionary named Employee and define properties under it.
-- Update the YAML file to represent the Projects assigned to Jacob. Remember Jacob works Multiple projects - Automation and Support. So remember to use a list.
-- Update the YAML file to include Jacob's pay slips. Add a new property "Payslips" and create a list of pay slip details (Use list of dictionaries). Each payslip detail contains Month and Wage.
-
-<img src="yaml_usecase_employee_3.png" align="left" style="zoom:100%;" />
-
-```yaml
-Employee:
-    Name: Jacob
-    Sex: Male
-    Age: 30
-    Title: Systems Engineer
-    Projects:
-        - Automation
-        - Support
-    Payslips:
-        - Month: June
-          Wage: 4000
-        - Month: July
-          Wage: 4500
-        - Month: August
-          Wage: 4000
-```
-
-# Create POD from YAML file
-
+# Deployment
