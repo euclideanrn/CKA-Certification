@@ -5,12 +5,9 @@ metadata:
   labels:
     tier: db-tier
 spec:
-  replicas: 23
+  replicas: 33
   strategy:
     type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 4
-      maxUnavailable: 1
   selector:
     matchLabels:
       tier: db-tier
@@ -22,7 +19,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres
+          image: postgres:9.6.18
           env:
             - name: POSTGRES_PASSWORD
               value: mysecretpassword

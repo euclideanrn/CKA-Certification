@@ -71,3 +71,13 @@ It is a container orchestration technology used to orchestrate the deployment an
 #### Controller
 
 #### Scheduler
+
+## PODs
+
+## Replica Sets
+
+## Deployments
+
+## Networking
+
+## Services
