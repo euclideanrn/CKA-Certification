@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    type: nginx
+    tier: frontend
+spec:
+  replicas: 33
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      type: nginx
+      tier: frontend
+  template:
+    metadata:
+      name: postgres
+      labels:
+        type: nginx
+        tier: frontend
+    spec:
+      containers:
+        - name: nginx
+          image: registry.cn-hangzhou.aliyuncs.com/google-containers/nginx:1.13.3-k8s

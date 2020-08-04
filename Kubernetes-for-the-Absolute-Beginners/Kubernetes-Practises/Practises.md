@@ -105,7 +105,7 @@ Employee:
           Wage: 4000
 ```
 
-# POD
+# PODs
 
 ## Create from Command Line
 
@@ -200,8 +200,35 @@ Events:          <none>
 
 ...
 
-# Replica Set
+# Replica Sets
 
 ...
 
-# Deployment
+# Deployments
+
+Create/Update a deployment:
+
+```bash
+kubectl apply -f .\deployment-definition.yml --record
+```
+
+Checkout the rolling update status:
+
+```bash
+kubectl rollout history deployment.apps/postgres-deployment
+```
+
+Checkout the rolling update history:
+
+```bash
+ kubectl rollout history deployment.apps/postgres-deployment
+```
+
+Revert to the previous revision:
+
+```bash
+kubectl rollout undo deployment.apps/postgres-deployment
+```
+
+# Services
+
