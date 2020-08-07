@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-redis
+  labels:
+    name: deployment-redis
+    app: votingdemo
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      name: pod-redis
+      app: votingdemo
+  template:
+    metadata:
+      name: pod-redis
+      labels:
+        name: pod-redis
+        app: votingdemo
+    spec:
+      containers:
+        - name: redis
+          image: redis:6.0.6
+          ports:
+            - containerPort: 6379

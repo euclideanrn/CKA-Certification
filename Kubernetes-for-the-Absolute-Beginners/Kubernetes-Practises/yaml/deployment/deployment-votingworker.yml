@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-votingworker
+  labels:
+   name: deployment-votingworker
+   app: votingdemo
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      name: pod-votingworker
+      app: votingdemo
+  template:
+    metadata:
+      name: pod-votingworker
+      labels:
+        name: pod-votingworker
+        app: votingdemo
+    spec:
+      containers:
+        - name: votingworker
+          image: registry.cn-hangzhou.aliyuncs.com/wangbs/examplevotingapp_worker

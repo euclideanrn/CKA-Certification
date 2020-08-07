@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-postgres
+  labels:
+    name: deployment-postgres
+    app: votingdemo
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      name: pod-postgres
+      app: votingdemo
+  template:
+    metadata:
+      name: pod-postgres
+      labels:
+        name: pod-postgres
+        app: votingdemo
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:9.6.18
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_HOST_AUTH_METHOD
+              value: "trust"

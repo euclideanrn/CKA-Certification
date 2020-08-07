@@ -8,6 +8,6 @@ metadata:
 spec:
   containers:
     - name: votingapp
-      image: dockersamples/examplevotingapp_vote
+      image: registry.cn-hangzhou.aliyuncs.com/wangbs/examplevotingapp_voting-app
       ports:
         - containerPort: 80
