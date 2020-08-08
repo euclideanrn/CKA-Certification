@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-votingapp
+  labels:
+   name: deployment-votingapp
+   app: votingdemo
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      name: pod-votingapp
+      app: votingdemo
+  template:
+    metadata:
+      name: pod-votingapp
+      labels:
+        name: pod-votingapp
+        app: votingdemo
+    spec:
+      containers:
+        - name: votingapp
+          image: registry.cn-hangzhou.aliyuncs.com/wangbs/examplevotingapp_voting-app
+          ports:
+            - containerPort: 80

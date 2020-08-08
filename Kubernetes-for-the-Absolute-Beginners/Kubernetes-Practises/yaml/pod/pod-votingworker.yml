@@ -8,4 +8,4 @@ metadata:
 spec:
   containers:
     - name: votingworker
-      image: dockersamples/examplevotingapp_worker
+      image: registry.cn-hangzhou.aliyuncs.com/wangbs/examplevotingapp_worker
